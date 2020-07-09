@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Github User</string>
+    <string name="detail_app_name">Detail User</string>
+    <string name="image_user">Gambar User</string>
+    <string name="name">Nama</string>
+    <string name="repository">Repository</string>
+    <string name="following">Following</string>
+    <string name="follower">Follower</string>
+    <string name="username">Username</string>
+    <string name="icon_company">Lambang Perusahaan</string>
+    <string name="company">Perusahaan</string>
+    <string name="icon_location">Lambang Lokasi</string>
+    <string name="location">Lokasi</string>
+    <string name="queryHint">Pencarian Username</string>
+    <string name="status_app">Selamat datang di Github User, silakan mencari username untuk menampilkan list username tersebut dengan cara menekan tombol pencarian. Jika kamu mau mengubah bahasa, klik menu di atas kiri</string>
+    <string name="bio">Bio</string>
+    <string name="url">Url</string>
+    <string name="icon_url">Lambang Url</string>
+    <string name="gist">Gist</string>
+    <string name="status_user">Aplikasi Kamu</string>
+    <string name="change_language_settings">Mengubah pengaturan bahasa</string>
+    <string name="search">Pencarian</string>
+</resources>
