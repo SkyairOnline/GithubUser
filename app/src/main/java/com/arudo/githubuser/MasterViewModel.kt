@@ -16,7 +16,7 @@ class MasterViewModel : ViewModel() {
     val listSearchUsers = MutableLiveData<ArrayList<Lists>>()
     val listUser = MutableLiveData<User>()
     var errorStatus = MutableLiveData<String>()
-    private val apiKey = "9b4b2bd4b0979b133d1f96482cf95a38901c099b"
+    private val apiKey = BuildConfig.API_KEY
     private val client = AsyncHttpClient()
     var list = Lists()
     var user = User()
