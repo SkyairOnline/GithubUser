@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Github Consumer</string>
+    <string name="detail_app_name">Detail User</string>
+    <string name="image_user">Image User</string>
+    <string name="name">Name</string>
+    <string name="repository">Repository</string>
+    <string name="following">Following</string>
+    <string name="follower">Follower</string>
+    <string name="username">Username</string>
+    <string name="icon_company">Icon Company</string>
+    <string name="company">Company</string>
+    <string name="icon_location">Icon Location</string>
+    <string name="location">Location</string>
+    <string name="queryHint">Username Search</string>
+    <string name="status_app">Welcome to Github User, please search the username to show the list by click the search button. If you want to change language, just click the menu in upper right</string>
+    <string name="bio">Bio</string>
+    <string name="url">Url</string>
+    <string name="icon_url">Icon Url</string>
+    <string name="gist">Gist</string>
+    <string name="status_user">Your app</string>
+    <string name="search">Search</string>
+    <string name="favorite_user">Favorite User</string>
+    <string name="notificationTitle">Good Morning</string>
+    <string name="notificationContent">If you interested, feel free to visit our app.</string>
+    <string name="empty_favorite_user">Empty Favorite User</string>
+    <string name="notification">Notification</string>
+    <string name="change_language">Change Language</string>
+    <string name="setting">Setting</string>
+</resources>

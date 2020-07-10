@@ -18,6 +18,12 @@
     <string name="icon_url">Icon Url</string>
     <string name="gist">Gist</string>
     <string name="status_user">Your app</string>
-    <string name="change_language_settings">Change Language Settings</string>
     <string name="search">Search</string>
+    <string name="favorite_user">Favorite User</string>
+    <string name="notificationTitle">Good Morning</string>
+    <string name="notificationContent">If you interested, feel free to visit our app.</string>
+    <string name="empty_favorite_user">Empty Favorite User</string>
+    <string name="notification">Notification</string>
+    <string name="change_language">Change Language</string>
+    <string name="setting">Setting</string>
 </resources>

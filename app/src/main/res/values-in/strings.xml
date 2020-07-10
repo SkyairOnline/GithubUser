@@ -19,6 +19,12 @@
     <string name="icon_url">Lambang Url</string>
     <string name="gist">Gist</string>
     <string name="status_user">Aplikasi Kamu</string>
-    <string name="change_language_settings">Mengubah pengaturan bahasa</string>
     <string name="search">Pencarian</string>
+    <string name="favorite_user">User Favorite</string>
+    <string name="notificationTitle">Selamat Pagi</string>
+    <string name="notificationContent">Jika tertarik, silakan mengunjungi aplikasi ini.</string>
+    <string name="empty_favorite_user">User Favorite Kosong</string>
+    <string name="notification">Notifikasi</string>
+    <string name="change_language">Ubah Bahasa</string>
+    <string name="setting">Pengaturan</string>
 </resources>

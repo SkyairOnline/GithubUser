@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context=".SettingActivity">
+
+    <Switch
+        android:id="@+id/notificationSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/background_app_button"
+        android:padding="15dp"
+        android:text="@string/notification"
+        android:theme="@style/SwitchStyle" />
+
+    <TextView
+        android:id="@+id/changeLocalization"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_app_button"
+        android:padding="15dp"
+        android:text="@string/change_language"
+        android:textColor="@android:color/black" />
+</LinearLayout>

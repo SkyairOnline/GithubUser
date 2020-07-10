@@ -4,13 +4,13 @@ import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.SearchView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
@@ -20,9 +20,10 @@ import com.arudo.githubuser.model.Lists
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var adapter: ListAdapter
+    private lateinit var listAdapter: ListAdapter
     private lateinit var masterViewModel: MasterViewModel
     private var indexStatus = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -30,15 +31,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun result() {
-        adapter = ListAdapter()
-        adapter.notifyDataSetChanged()
-        rvUser.adapter = adapter
+        listAdapter = ListAdapter()
+        listAdapter.notifyDataSetChanged()
+        rvUser.adapter = listAdapter
         masterViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
             MasterViewModel::class.java
         )
         masterViewModel.getList().observe(this, Observer {
             if (it != null) {
-                adapter.setData(it)
+                listAdapter.setData(it)
                 statusText.setText(R.string.status_app)
                 indexStatus = 1
                 showLoading(false)
@@ -46,12 +47,12 @@ class MainActivity : AppCompatActivity() {
         })
         masterViewModel.getStatusApp().observe(this, Observer {
             if (it != null) {
-                statusText.text = it
+                showToastMessage(it)
                 indexStatus = 0
                 showLoading(false)
             }
         })
-        adapter.setOnItemClickCallBack(object : ListAdapter.OnItemClickCallBack {
+        listAdapter.setOnItemClickCallBack(object : ListAdapter.OnItemClickCallBack {
             override fun onItemClicked(data: Lists) {
                 selectedList(data)
             }
@@ -111,8 +112,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.changeLocalization) {
-            startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+        when (item.itemId) {
+            R.id.setting -> startActivity(Intent(this@MainActivity, SettingActivity::class.java))
+            R.id.favorite -> startActivity(Intent(this@MainActivity, FavoriteActivity::class.java))
         }
         return super.onOptionsItemSelected(item)
     }
@@ -134,13 +136,16 @@ class MainActivity : AppCompatActivity() {
                 statusText.visibility = View.VISIBLE
             }
             progressBar.visibility = View.GONE
-
         }
     }
 
     private fun selectedList(lists: Lists) {
         val moveUserIntent = Intent(this@MainActivity, DetailActivity::class.java)
-        moveUserIntent.putExtra(DetailActivity.search, lists)
+        moveUserIntent.putExtra(DetailActivity.EXTRA_LIST, lists)
         startActivity(moveUserIntent)
+    }
+
+    private fun showToastMessage(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }

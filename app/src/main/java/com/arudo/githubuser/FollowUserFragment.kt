@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -61,7 +62,7 @@ class FollowUserFragment : Fragment() {
         })
         followMasterViewModel.getStatusApp().observe(viewLifecycleOwner, Observer {
             if (it != null) {
-                statusText.text = it
+                showToastMessage(it)
                 indexStatus = 0
                 showLoading(false)
             }
@@ -75,7 +76,7 @@ class FollowUserFragment : Fragment() {
 
     private fun selectedList(list: Lists) {
         val moveUserIntent = Intent(activity, DetailActivity::class.java)
-        moveUserIntent.putExtra(DetailActivity.search, list)
+        moveUserIntent.putExtra(DetailActivity.EXTRA_LIST, list)
         startActivity(moveUserIntent)
     }
 
@@ -83,15 +84,15 @@ class FollowUserFragment : Fragment() {
         if (state) {
             progressBar.visibility = View.VISIBLE
             rvUser.visibility = View.GONE
-            statusText.visibility = View.GONE
         } else {
-            if (indexStatus == 0) {
-                statusText.visibility = View.VISIBLE
-            } else if (indexStatus == 1) {
+            if (indexStatus == 1) {
                 rvUser.visibility = View.VISIBLE
             }
             progressBar.visibility = View.GONE
         }
     }
 
+    private fun showToastMessage(message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+    }
 }

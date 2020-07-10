@@ -3,6 +3,16 @@
     package="com.arudo.githubuser">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <permission
+        android:name="com.arudo.githubuser.READ_DATABASE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.arudo.githubuser.WRITE_DATABASE"
+        android:protectionLevel="normal" />
 
     <application
         android:allowBackup="true"
@@ -12,10 +22,54 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DetailActivity"
-            android:label="@string/detail_app_name"
-            android:configChanges="orientation|screenSize"/>
-        <activity android:name=".MainActivity"
+        <receiver android:name=".receiver.StackFavoriteWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/stack_favorite_widget_info" />
+        </receiver>
+        <service
+            android:name=".service.StackFavoriteWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <activity
+            android:name=".SettingActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="Settings" />
+        <activity
+            android:name=".FavoriteActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/favorite_user"
+            android:launchMode="singleTop" />
+
+        <provider
+            android:name=".provider.ListProvider"
+            android:authorities="com.arudo.githubuser"
+            android:enabled="true"
+            android:exported="true"
+            android:readPermission="com.arudo.githubuser.READ_DATABASE"
+            android:writePermission="com.arudo.githubuser.WRITE_DATABASE" />
+
+        <receiver
+            android:name=".receiver.AlarmReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".DetailActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/detail_app_name" />
+        <activity
+            android:name=".MainActivity"
             android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
