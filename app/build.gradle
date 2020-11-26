@@ -17,7 +17,7 @@ android {
         versionCode 1
         versionName "1.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "API_KEY", '"9b4b2bd4b0979b133d1f96482cf95a38901c099b"')
+        buildConfigField("String", "API_KEY", '"Make your own github apikey"')
     }
 
     buildTypes {
